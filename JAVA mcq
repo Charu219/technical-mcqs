@@ -1,0 +1,226 @@
+Q1. What is the output of the following program?
+public class Test {
+    public static void main(String[] args) {
+        System.out.println(0.1 + 0.2 == 0.3);
+    }
+}
+ 
+A) true
+B) false
+C) Compilation error
+D) 1
+
+
+Q2. What is printed by the following code?
+String a = "hello";
+String b = "hello";
+String c = new String("hello");
+System.out.println(a == b);
+System.out.println(a == c);
+System.out.println(a == c.intern());
+ 
+A) true, false, true
+B) true, true, true
+C) false, false, true
+D) true, false, false
+Q3. What does the following program print?
+class Animal {
+    static String sound() { return "Animal sound"; }
+}
+class Dog extends Animal {
+    static String sound() { return "Bark"; }
+}
+public class Test {
+    public static void main(String[] args) {
+        Animal a = new Dog();
+        System.out.println(a.sound());
+    }
+}
+ 
+A) Bark
+B) Animal sound
+C) Compilation error
+D) Runtime exception
+Q4. What is the output of the following method call?
+static int test() {
+    try {
+        return 1;
+    } finally {
+        return 2;
+    }
+}
+// called from main as System.out.println(test());
+ 
+A) 1
+B) 2
+C) Compilation error
+D) 2 followed by 1
+Q5. What is the output of the following code?
+Integer a = 127;
+Integer b = 127;
+Integer c = 128;
+Integer d = 128;
+System.out.println(a == b);
+System.out.println(c == d);
+ 
+A) true, true
+B) false, false
+C) true, false
+D) false, true
+Q6. Which of the following exceptions is a checked exception in Java?
+A) NullPointerException
+B) ArrayIndexOutOfBoundsException
+C) IOException
+D) ArithmeticException
+Q7. What happens when the following code is compiled?
+public static void main(String[] args) {
+    int x = 10;
+    Runnable r = () -> System.out.println(x);
+    x = 20;
+    r.run();
+}
+ 
+A) Prints 10
+B) Prints 20
+C) Compilation error
+D) Prints 10 then 20
+Q8. What happens when the following code is run?
+Integer a = null;
+int b = a;
+ 
+A) b becomes 0
+B) Compilation error
+C) NullPointerException is thrown at runtime
+D) b becomes -1
+Q9. What is the result of executing the following code?
+Object[] arr = new String[3];
+arr[0] = 10;
+ 
+A) Compiles and runs fine
+B) Compilation error only
+C) Throws ArrayStoreException at runtime
+D) Throws ClassCastException at runtime
+Q10. Given two interfaces with conflicting default methods, what must class C do?
+interface A { default String hello() { return "A"; } }
+interface B { default String hello() { return "B"; } }
+class C implements A, B {
+    // no override of hello()
+}
+ 
+A) It compiles fine and A's version is used
+B) It compiles fine and B's version is used
+C) It fails to compile unless C overrides hello()
+D) It compiles but throws an exception at runtime
+Q11. Which statement about the following code is correct?
+List<String> list = new ArrayList<>();
+boolean result = list instanceof List<String>;
+ 
+A) Compiles and prints true
+B) Compiles and prints false
+C) Fails to compile due to type erasure
+D) Throws ClassCastException at runtime
+Q12. What is the output of the following program?
+class Parent {
+    static { System.out.print("P"); }
+    Parent() { System.out.print("p"); }
+}
+class Child extends Parent {
+    static { System.out.print("C"); }
+    Child() { System.out.print("c"); }
+}
+public class Test {
+    public static void main(String[] args) {
+        new Child();
+        new Child();
+    }
+}
+ 
+A) PCpcpc
+B) PpCcPpCc
+C) PCpccp
+D) pPcCcC
+Q13. What is printed by the following code?
+final String a = "Hello";
+final String b = "World";
+String c = a + b;
+System.out.println(c == "HelloWorld");
+ 
+A) true
+B) false
+C) Compilation error
+D) Depends on JVM
+Q14. Which overloaded method is invoked by the call test(1, 2, 3)?
+static void test(int... a) { System.out.println("int..."); }
+static void test(Integer... a) { System.out.println("Integer..."); }
+// call: test(1, 2, 3);
+ 
+A) test(Integer...) is invoked
+B) test(int...) is invoked
+C) Compilation error: ambiguous call
+D) Runtime exception
+Q15. What is the output of the following nested loop?
+outer:
+for (int i = 0; i < 3; i++) {
+    for (int j = 0; j < 3; j++) {
+        if (j == 1) continue outer;
+        System.out.print("" + i + j);
+    }
+}
+ 
+A) 000102101112202122
+B) 001020
+C) 012
+D) 000102
+Q16. What is the output of the following code?
+Long a = 100L;
+Long b = 100L;
+Long c = 200L;
+Long d = 200L;
+System.out.println(a == b);
+System.out.println(c == d);
+ 
+A) true, true
+B) true, false
+C) false, true
+D) false, false
+Q17. What is the output of the following program?
+abstract class Shape {
+    Shape() { System.out.println("Shape created"); draw(); }
+    abstract void draw();
+}
+class Circle extends Shape {
+    int radius = 5;
+    void draw() { System.out.println("Radius: " + radius); }
+}
+public class Test {
+    public static void main(String[] args) {
+        new Circle();
+    }
+}
+ 
+A) Shape created Radius: 5
+B) Shape created Radius: 0
+C) Radius: 0 Shape created
+D) Compilation error
+Q18. What is the output of the following code?
+Object o = true ? new Integer(1) : new Double(2.0);
+System.out.println(o);
+ 
+A) 1
+B) 1.0
+C) 2.0
+D) Compilation error
+Q19. Which lock does a synchronized static method acquire?
+A) The lock on 'this' (the calling instance)
+B) The lock on the Class object of the class
+C) No lock is acquired for static methods
+D) A separate lock per method
+Q20. What happens when the following code is compiled?
+List<? extends Number> list = new ArrayList<Integer>();
+list.add(10);
+ 
+A) Compiles and adds 10 to the list
+B) Compiles but throws an exception at runtime
+C) Fails to compile because add() is not permitted on a wildcard-extends list
+D) Fails to compile because ArrayList<Integer> cannot be assigned to List<? extends Number>
+
