@@ -1,0 +1,101 @@
+Q41. An IP address 192.168.10.130 uses subnet mask 255.255.255.192. What is the network address of this subnet?
+A) 192.168.10.0
+B) 192.168.10.64
+C) 192.168.10.128
+D) 192.168.10.192
+Q42. How many usable host addresses are available in a subnet with a /27 prefix?
+A) 14
+B) 30
+C) 62
+D) 126
+Q43. What is the correct order of TCP flags exchanged during the TCP three-way handshake to establish a connection?
+A) ACK, SYN, SYN-ACK
+B) SYN, SYN-ACK, ACK
+C) SYN, ACK, FIN
+D) FIN, SYN, ACK
+Q44. At which layer of the OSI model do TCP and UDP primarily operate?
+A) Network layer (Layer 3)
+B) Transport layer (Layer 4)
+C) Session layer (Layer 5)
+D) Data Link layer (Layer 2)
+Q45. What is the primary purpose of the Address Resolution Protocol (ARP)?
+A) To translate domain names into IP addresses
+B) To resolve a known IP address to its corresponding MAC address on a local network
+C) To assign IP addresses dynamically to hosts
+D) To route packets between different networks
+Q46. What is the default subnet mask for a Class B IPv4 network?
+A) 255.0.0.0
+B) 255.255.0.0
+C) 255.255.255.0
+D) 255.255.255.128
+Q47. How many total IP addresses (including network and broadcast) are contained in a /28 subnet?
+A) 8
+B) 16
+C) 32
+D) 14
+Q48. Which combination of steps is used to gracefully terminate an established TCP connection?
+A) A single RST packet from either side
+B) A two-way handshake using only ACK packets
+C) A four-way exchange of FIN and ACK segments from both sides
+D) The connection simply times out after 60 seconds
+Q49. Which DNS resource record type maps a hostname to an IPv6 address?
+A) A record
+B) AAAA record
+C) CNAME record
+D) MX record
+Q50. What is the well-known TCP port number used by HTTPS?
+A) 80
+B) 21
+C) 443
+D) 25
+Q51. Which OSI layers collectively correspond to the single 'Application' layer of the TCP/IP (Internet) model?
+A) Only the Application layer (Layer 7)
+B) Session, Presentation, and Application layers (Layers 5, 6, 7)
+C) Transport and Application layers (Layers 4 and 7)
+D) Physical, Data Link, and Network layers
+Q52. What is the broadcast address for the network 172.16.5.0/24?
+A) 172.16.5.0
+B) 172.16.5.1
+C) 172.16.5.254
+D) 172.16.5.255
+Q53. Which network device operates primarily at Layer 2 of the OSI model and forwards frames based on MAC address tables?
+A) Router
+B) Hub
+C) Switch
+D) Firewall (Layer 3)
+Q54. What is the purpose of a default gateway on a host's network configuration?
+A) It assigns IP addresses to the host automatically
+B) It resolves hostnames to IP addresses
+C) It is the router used to forward traffic destined for networks outside the local subnet
+D) It caches recently visited web pages
+Q55. What capability does PAT (Port Address Translation, also called NAT overload) provide?
+A) It allows a single private IP address to be split into multiple private IPs
+B) It allows multiple internal private IP addresses to share one public IP address, distinguished by port numbers
+C) It encrypts traffic leaving the private network
+D) It assigns a unique public IP to every internal host automatically
+Q56. In TCP congestion control, which phase increases the congestion window exponentially until the slow start threshold (ssthresh) is reached?
+A) Congestion avoidance
+B) Fast recovery
+C) Slow start
+D) Fast retransmit
+Q57. Given that the IPv4 header's Total Length field is 16 bits, what is the maximum possible size of an IPv4 packet?
+A) 1,500 bytes
+B) 4,096 bytes
+C) 65,535 bytes
+D) 1,048,576 bytes
+Q58. What is the primary purpose of a VLAN (Virtual LAN)?
+A) To physically separate networks using different cabling
+B) To logically segment a single physical network into multiple isolated broadcast domains without needing separate physical switches
+C) To encrypt traffic between two routers
+D) To increase the maximum transmission unit (MTU) of a network
+Q59. A company needs a subnet that can support 200 hosts. What is the minimum CIDR prefix length required?
+A) /23
+B) /24
+C) /25
+D) /26
+Q60. Which protocol does the 'ping' utility use to test network connectivity between two hosts?
+A) ARP
+B) ICMP
+C) SNMP
+D) TCP
+
