@@ -1,0 +1,125 @@
+Q21. Given tables Employees(id, name, dept_id, salary) and Departments(dept_id, dept_name), what does the following query return?
+SELECT e.name, d.dept_name
+FROM Employees e
+LEFT JOIN Departments d ON e.dept_id = d.dept_id
+WHERE d.dept_name IS NULL;
+ 
+A) Employees along with their department names
+B) Only employees whose dept_id has no matching row in Departments
+C) All departments with no employees
+D) A syntax error, since LEFT JOIN cannot be combined with WHERE ... IS NULL
+Q22. In standard SQL query processing (logical execution order), which clause is evaluated first among these?
+A) SELECT
+B) GROUP BY
+C) WHERE
+D) HAVING
+Q23. How many rows does the following query return, assuming Employees.salary contains some NULL values?
+SELECT COUNT(*) FROM Employees WHERE salary <> NULL;
+ 
+A) The count of employees whose salary is not NULL
+B) The count of employees whose salary is NULL
+C) 0, for every possible table
+D) An error, because <> cannot be used with NULL
+Q24. What is the purpose of the following self-join query on Users(id, email)?
+SELECT a.id
+FROM Users a, Users b
+WHERE a.email = b.email AND a.id > b.id;
+ 
+A) It lists all unique emails
+B) It lists ids of duplicate rows (the later-inserted duplicates) sharing an email with an earlier row
+C) It lists ids of users with no duplicate email
+D) It causes a Cartesian product error
+Q25. Which standard SQL transaction isolation level prevents non-repeatable reads but does not, by definition, prevent phantom reads?
+A) READ UNCOMMITTED
+B) READ COMMITTED
+C) REPEATABLE READ
+D) SERIALIZABLE
+Q26. Which normal form specifically eliminates transitive dependencies on the primary key?
+A) 1NF
+B) 2NF
+C) 3NF
+D) BCNF
+Q27. Which type of index physically reorders the rows of a table on disk according to the indexed column(s)?
+A) Non-clustered index
+B) Clustered index
+C) Bitmap index
+D) Unique index
+Q28. Table A has 3 rows and table B has 4 rows. How many rows does 'SELECT * FROM A CROSS JOIN B;' return?
+A) 7
+B) 12
+C) 4
+D) 3
+Q29. In the following UPDATE statement, how many times is the subquery (SELECT AVG(salary) FROM Employees) logically evaluated?
+UPDATE Employees
+SET salary = salary * 1.1
+WHERE salary < (SELECT AVG(salary) FROM Employees);
+ 
+A) Once per row being updated
+B) Exactly once for the whole statement, since it is not correlated to the outer row
+C) Twice, once before and once after the update
+D) It causes an error because you cannot SELECT from a table you are updating
+Q30. In strict standard SQL (e.g. PostgreSQL, SQL Server default settings), is the following query valid?
+SELECT dept_id, name, COUNT(*)
+FROM Employees
+GROUP BY dept_id;
+ 
+A) Valid; 'name' is automatically treated as an aggregate
+B) Valid; 'name' is picked arbitrarily from each group
+C) Invalid; 'name' must appear in GROUP BY or be wrapped in an aggregate function
+D) Valid, but only if 'name' is the primary key
+Q31. A table Orders has a foreign key to Customers defined with ON DELETE CASCADE. What happens when a row in Customers is deleted?
+A) The delete fails with a constraint violation
+B) The related rows in Orders are automatically deleted as well
+C) The dept_id in Orders is automatically set to NULL
+D) Nothing happens to Orders
+Q32. Which of the following is true regarding UNION versus UNION ALL?
+A) UNION ALL removes duplicate rows; UNION keeps them
+B) UNION removes duplicate rows (typically requiring an implicit sort/distinct), while UNION ALL keeps all rows and is usually faster
+C) Both remove duplicates identically
+D) UNION ALL cannot be used with ORDER BY
+Q33. Given the following query, if two employees tie for the highest salary, what rank values are produced?
+SELECT name, salary,
+RANK() OVER (ORDER BY salary DESC) AS rnk
+FROM Employees;
+ 
+A) Both get rank 1, and the next distinct salary gets rank 2
+B) Both get rank 1, and the next distinct salary gets rank 3
+C) Both get different ranks 1 and 2
+D) An error occurs because RANK() cannot handle ties
+Q34. Which ACID property ensures that the partial effects of an uncommitted transaction are not visible to other concurrent transactions?
+A) Atomicity
+B) Consistency
+C) Isolation
+D) Durability
+Q35. Which statement correctly distinguishes a primary key from a unique key?
+A) A table can have multiple primary keys but only one unique key
+B) A primary key column may contain NULL values, a unique key may not
+C) A table can have only one primary key (single or composite) but multiple unique keys, and unique key columns may allow NULL values
+D) Foreign keys can only reference primary keys, never unique keys
+Q36. In the standard logical query processing order, which clause is evaluated last?
+A) WHERE
+B) GROUP BY
+C) HAVING
+D) ORDER BY
+Q37. When a database detects a deadlock between two transactions, what does it typically do?
+A) It pauses both transactions indefinitely until the administrator intervenes
+B) It automatically rolls back one transaction (the 'victim') so the other can proceed
+C) It merges the two transactions into one
+D) It always rolls back the transaction that started first
+Q38. What happens when you attempt to insert a row into a child table whose foreign key value does not exist in the referenced parent table?
+A) The row is inserted and the foreign key is set to NULL automatically
+B) The insert fails with a foreign key constraint violation
+C) The parent table automatically gets a new row inserted to match
+D) The insert succeeds silently
+Q39. If table B's 'id' column contains at least one NULL value, what does the following query return?
+SELECT * FROM A WHERE id NOT IN (SELECT id FROM B);
+ 
+A) All rows of A whose id is not present in B's non-null ids
+B) Zero rows, regardless of the data in A
+C) All rows of A
+D) An error is raised at query time
+Q40. Which statement correctly compares Boyce-Codd Normal Form (BCNF) with Third Normal Form (3NF)?
+A) 3NF is strictly stronger than BCNF
+B) BCNF and 3NF are always equivalent for any schema
+C) BCNF is stricter than 3NF, requiring every determinant of a functional dependency to be a candidate key
+D) BCNF only applies to tables with no candidate keys
